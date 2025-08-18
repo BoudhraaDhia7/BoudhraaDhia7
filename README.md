@@ -6,7 +6,7 @@ I build secure APIs and fast UIs. I also automate hosting tasks (domains, Site.P
 Open to remote work and relocation to Germany (ZAB recognized).
 
 - 📧 **Email:** boudhraad@gmail.com
-- 🔗 **LinkedIn:** https://www.linkedin.com/in/dhia-boudhraa-243b80201
+- 🔗 **LinkedIn:** https://linkedin.com/in/dhia-boudhraa-243b80201
 - 🧑‍💻 **GitHub:** https://github.com/BoudhraaDhia7
 
 ---
