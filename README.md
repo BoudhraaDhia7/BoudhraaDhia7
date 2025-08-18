@@ -14,7 +14,9 @@ Open to remote work and relocation to Germany (ZAB recognized).
 ## Featured Projects (GIF Case Studies)
 
 ### 1) Hosteur.pro — Hosting Automation (Job)
-![Hosteur GIF](./assets/hosteur.gif)
+![Hosteur LANDING-GIF](./assets/hs-landing.gif)
+![Hosteur AI-GIF](./assets/hs-AI.gif)
+![Hosteur WP-GIF](./assets/hs-wp.gif)
 
 **What I did:**
 - Dynadot API automation (register, privacy, contacts) → **less manual support**
@@ -50,11 +52,13 @@ Open to remote work and relocation to Germany (ZAB recognized).
 **Stack:** Laravel, Vue.js, Docker, Redis, Nginx, CyberPanel, Google Cloud, Stripe, PayPal, Dynadot, Site.Pro  
 **Role:** Full-stack developer (automation, billing, frontend, cloud)  
 **Demo:** _by request_ • **Code:** private (company IP protected)
+**LINK:** [hoststronger](https://hoststronger.com)
 
 ---
 
 ### 2) BID-TN Auction Platform — Real-Time Bids + Payments
-![Auction GIF](./assets/auction.gif)
+![Auction GIF](./assets/BID.gif)
+![Auction LIVE-GIF](./assets/bid-live.gif)
 
 **Problem:** Need real-time bidding at scale with payments.  
 **Solution:** Laravel + React + WebSockets; Redis for speed; Stripe Checkout + webhooks.  
@@ -62,11 +66,12 @@ Open to remote work and relocation to Germany (ZAB recognized).
 **Stack:** Laravel, React, Redis, WebSockets, Stripe  
 **Role:** Full-stack developer (intern)  
 **Demo:** _by request_ • **Code:** private
+**LINK:** [bid-tn](https://bidtn-front.pfe.anypli.com/)
 
 ---
 
 ### 3) LondonWaste Manager — Task & Driver Tracking
-![LondonWaste GIF](./assets/londonwaste.gif)
+![LondonWaste GIF](./assets/WASTE.gif)
 
 **Problem:** Task assignment was slow. Driver tracking was weak.  
 **Solution:** React + Redux Toolkit app with live updates; Mapbox for drivers; Node.js APIs with Socket.IO.  
@@ -78,7 +83,7 @@ Open to remote work and relocation to Germany (ZAB recognized).
 ---
 
 ### 4) Smart-Learn — E-Learning Platform
-![Smart-Learn GIF](./assets/smartlearn.gif)
+![Smart-Learn GIF](./assets/SM-LD.gif)
 
 **Problem:** Course setup was slow and manual.  
 **Solution:** Built a multi-step course creator (video, audio, PDF, quiz). Laravel APIs for media; Docker for stable releases.  
