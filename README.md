@@ -52,8 +52,8 @@ Open to remote work and relocation to Germany (ZAB recognized).
 <details open>
   <summary style="font-size:1.2em;"><strong>Click to view GIFs</strong></summary>
   <p>
-    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" style="margin:10px;">
-    <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420" style="margin:10px;">
+    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" height="240" style="margin:10px;">
+    <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420" height="240" style="margin:10px;">
   </p>
 </details>
 
@@ -72,17 +72,25 @@ Open to remote work and relocation to Germany (ZAB recognized).
 **Live:** https://bidtn-front.pfe.anypli.com/  
 **Demo:** _by request_ • **Code:** private
 
-<details>
-  <summary><strong>More demo</strong> — Live bidding view</summary>
-  <p align="center">
-    <img src="./assets/bid-live.gif" alt="Auction live room" width="800">
+<div align="center">
+
+### 🎬 **See More Demos — Live Bidding Room**
+
+<details open>
+  <summary style="font-size:1.2em;"><strong>Click to view GIF</strong></summary>
+  <p>
+    <img src="./assets/bid-live.gif" alt="Auction live room" width="800" style="margin:10px;">
   </p>
 </details>
+
+</div>
 
 ---
 
 ### 3) LondonWaste Manager — Task & Driver Tracking
-<img src="./assets/WASTE.gif" alt="LondonWaste tracking" width="900">
+<div align="center">
+  <img src="./assets/WASTE.gif" alt="LondonWaste tracking" width="375">
+</div>
 
 **Problem:** task assignment slow; driver tracking weak  
 **Solution:** React + Redux Toolkit with live updates; Mapbox for drivers; Node.js + Socket.IO  
