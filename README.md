@@ -45,14 +45,19 @@ Open to remote work and relocation to Germany (ZAB recognized).
 **Live:** https://hoststronger.com  
 **Demo:** _by request_ • **Code:** private
 
-<details>
-  <summary><strong>More demos</strong> — AI builder & WordPress setup</summary>
+<div align="center">
 
-  <p align="center">
-    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420">
-    <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420">
+### 🚀 **See More Demos — AI Builder & WordPress Setup**
+
+<details open>
+  <summary style="font-size:1.2em;"><strong>Click to view GIFs</strong></summary>
+  <p>
+    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" style="margin:10px;">
+    <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420" style="margin:10px;">
   </p>
 </details>
+
+</div>
 
 ---
 
