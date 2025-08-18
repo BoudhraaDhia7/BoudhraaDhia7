@@ -52,7 +52,7 @@ Open to remote work and relocation to Germany (ZAB recognized).
 <details open>
   <summary style="font-size:1.2em;"><strong>Click to view GIFs</strong></summary>
   <p>
-    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" height="240" style="margin:10px;">
+    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" style="margin:10px; height:100%">
     <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420" height="240" style="margin:10px;">
   </p>
 </details>
