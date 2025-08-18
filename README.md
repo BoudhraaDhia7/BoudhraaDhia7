@@ -89,7 +89,7 @@ Open to remote work and relocation to Germany (ZAB recognized).
 ---
 
 ### 4) Smart-Learn — E-Learning Platform
-<img src="./assets/SM-LD.gif" alt="Smart-Learn course creator" width="900">
+<img src="./assets/SM-LD.gif" alt="Smart-Learn course creator">
 
 **Problem:** slow manual course setup  
 **Solution:** Multi-step creator (video/audio/PDF/quiz); Laravel media APIs; Docker deploys  
