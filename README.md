@@ -7,7 +7,6 @@ Open to remote work and relocation to Germany (ZAB recognized).
 
 - 📧 **Email:** boudhraad@gmail.com
 - 🔗 **LinkedIn:** https://linkedin.com/in/dhia-boudhraa-243b80201
-- 🧑‍💻 **GitHub:** https://github.com/BoudhraaDhia7
 
 ---
 
