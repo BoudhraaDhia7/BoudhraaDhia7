@@ -1,134 +1,88 @@
 # Dhia Boudhraa — Software Engineer
+**Full-Stack Architecture • API Orchestration • System Automation**
 
-**Full-Stack (Laravel, React, Vue) • API & Hosting Automation • Docker/Redis/SQL**
+I design and build scalable web systems with a focus on **automation** and **reliability**. My expertise lies in connecting complex backend logic (Laravel/Node.js) with reactive frontends (React/Vue), managed through robust DevOps practices.
 
-I build secure APIs and fast UIs. I also automate hosting tasks (domains, Site.Pro, CyberPanel, S3, email) and deploy with Docker.  
-Open to remote work and relocation to Germany (ZAB recognized).
+🌍 **Relocation:** Based in Tunisia | **ZAB Recognized Engineering Degree** | Ready for Germany (Relocation) or Remote (EU Timezones).
 
 - 📧 **Email:** boudhraad@gmail.com
-- 🔗 **LinkedIn:** https://linkedin.com/in/dhia-boudhraa-243b80201
+- 🔗 **LinkedIn:** [dhia-boudhraa](https://linkedin.com/in/dhia-boudhraa-243b80201)
 
 ---
 
-## Featured Projects (GIF Case Studies)
+## 🏗️ Featured Project: HostStronger (Hosting Automation)
 
-### 1) Hosteur.pro — Hosting Automation (Job)
+HostStronger is a comprehensive platform designed to automate the lifecycle of domains and cloud hosting. My work centered on building a reliable "Provisioning Pipeline" that handles multiple external service providers.
+
 <img src="./assets/hs-landing.gif" alt="Hosteur landing flow" width="900">
 
-**What I did**
-- Dynadot API automation (register, privacy, contacts) → **less manual support**
-- Site.Pro integration (GCP deploy, auto FTP, basic DNS via CyberPanel/OpenLiteSpeed) → **faster go-live**
-- Docker CI/CD for Laravel API + React app → **low-downtime releases**
-- Security: Sanctum + JWT (short-life + refresh), 2FA (TOTP), IP alerts, rate limiting
-- Performance: Redis queues + caching; smoother peaks
+**Core Architectural Contributions:**
+- **Service Orchestration:** Integrated Dynadot and Site.pro APIs to automate domain registration, DNS management, and site deployments.
+- **Asynchronous Processing:** Built an order-handling engine using **Laravel Jobs and Redis** to process service provisioning tasks in the background, ensuring system stability during external API latency.
+- **Billing Architecture:** Engineered a full-cycle subscription system with **Stripe and PayPal**, managing complex webhook states for recurring payments, trials, and multi-currency transactions.
+- **Infrastructure:** Containerized the entire stack with **Docker**. Managed GCP environments using CyberPanel to automate SSL renewals and system backups.
 
-**Billing & subscriptions**
-- Stripe + PayPal, recurring billing, trials/refunds, webhooks, multi-currency
-- Invoices/receipts by email
-
-**Frontend (Vue.js)**
-- Modular components (Composition API): onboarding, billing, domains
-- Clear CTAs → **better engagement**
-
-**Jobs & schedules**
-- Queues for heavy tasks; cron for SSL renewals/backups/subscription checks
-
-**Cloud & hosting**
-- CyberPanel on Google Cloud: VMs, snapshots, networking, backups, SSL auto-renew
-
-**Prompt-based site creator**
-- Users create a website from prompts → auto Site.Pro site + FTP + basic DNS
-
-**Stack:** Laravel, Vue.js, Docker, Redis, Nginx, CyberPanel, GCP, Stripe, PayPal, Dynadot, Site.Pro  
-**Role:** Full-stack (automation, billing, frontend, cloud)  
-**Live:** https://hoststronger.com  
-**Demo:** _by request_ • **Code:** private
+**Stack:** Laravel, Vue.js (Composition API), Docker, Redis, Nginx, GCP, Stripe, PayPal.
+**Live:** [hoststronger.com](https://hoststronger.com)
 
 <div align="center">
-
-### 🚀 **See More Demos — AI Builder & WordPress Setup**
-
+<h3>🚀 AI Builder & WordPress Automation</h3>
 <details open>
-  <summary style="font-size:1.2em;"><strong>Click to view GIFs</strong></summary>
+  <summary>Click to view logic flows</summary>
   <p>
-    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" style="margin:10px; height:100%">
-    <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420" height="240" style="margin:10px;">
+    <img src="./assets/hs-AI.gif" alt="AI site builder" width="420" style="margin:10px;">
+    <img src="./assets/hs-wp.gif" alt="WordPress one-click setup" width="420" style="margin:10px;">
   </p>
 </details>
-
 </div>
 
 ---
 
-### 2) BID-TN Auction Platform — Real-Time Bids + Payments
+## 🚀 Engineering Challenges & Solutions
+
+### 1. BID-TN | Event-Driven Auction Platform 
+**The Challenge:** Maintaining a consistent global state for bidders during high-concurrency auction events.
+
 <img src="./assets/BID.gif" alt="Auction main flow" width="900">
 
-**Problem:** scale real-time bids with payments  
-**Solution:** Laravel + React + WebSockets; Redis for speed; Stripe Checkout + webhooks  
-**Result:** **2000+ bidders** with **<200 ms latency**  
-**Stack:** Laravel, React, Redis, WebSockets, Stripe  
-**Role:** Full-stack (intern)  
-**Live:** https://bidtn-front.pfe.anypli.com/  
-**Demo:** _by request_ • **Code:** private
+- **The Solution:** Implemented an event-driven architecture using **Laravel WebSockets** and **Redis** for real-time data broadcasting.
+- **State Management:** Used **Redux Toolkit (RTK Query)** on the frontend to manage server-state caching and ensure UI reactivity across bidding rooms.
 
-<div align="center">
-
-### 🎬 **See More Demos — Live Bidding Room**
-
-<details open>
-  <summary style="font-size:1.2em;"><strong>Click to view GIF</strong></summary>
-  <p>
-    <img src="./assets/bid-live.gif" alt="Auction live room" width="800" style="margin:10px;">
-  </p>
-</details>
-
-</div>
+<img src="./assets/bid-live.gif" alt="Auction live room" width="600">
 
 ---
 
-### 3) LondonWaste Manager — Task & Driver Tracking
+### 2. LondonWaste | Real-Time Logistics Tracking
+**The Challenge:** Coordinating driver locations and task assignments dynamically to reduce manual dispatching overhead.
+
 <div align="center">
   <img src="./assets/WASTE.gif" alt="LondonWaste tracking" width="375">
 </div>
 
-**Problem:** task assignment slow; driver tracking weak  
-**Solution:** React + Redux Toolkit with live updates; Mapbox for drivers; Node.js + Socket.IO  
-**Result:** **~60% faster workflow**, **~40% less fuel use**  
-**Stack:** React, Redux Toolkit, Node.js, Socket.IO, Mapbox  
-**Role:** Full-stack  
-**Demo:** _by request_ • **Code:** private
+- **The Solution:** Integrated **Mapbox API** with a **Socket.IO** backend to provide live driver tracking and dynamic route updates.
+- **Logic:** Built a centralized dashboard that handles live state updates, allowing admins to reassign tasks based on driver proximity.
 
 ---
 
-### 4) Smart-Learn — E-Learning Platform
-<img src="./assets/SM-LD.gif" alt="Smart-Learn course creator">
+### 3. Smart-Learn | Media-Heavy E-Learning
+**The Challenge:** Managing large-scale media uploads and structured course content delivery without blocking server performance.
 
-**Problem:** slow manual course setup  
-**Solution:** Multi-step creator (video/audio/PDF/quiz); Laravel media APIs; Docker deploys  
-**Result:** **1000+ MAU**, faster course creation  
-**Stack:** Laravel, React, Docker  
-**Role:** Full-stack  
-**Demo:** _by request_ • **Code:** private
+<img src="./assets/SM-LD.gif" alt="Smart-Learn course creator" width="900">
+
+- **The Solution:** Developed an asynchronous multi-step content creator using **Laravel Media APIs** and optimized storage protocols.
+- **Architecture:** Architected a modular "Course Engine" that supports various media types (Video/Audio/PDF) with automated progress tracking.
 
 ---
 
-## Skills (short)
-**Frontend:** React 18, Vue, TypeScript, Redux Toolkit, RTK Query, MUI, PrimeVue  
-**Backend:** PHP 8.3, Laravel 10, Node.js  
-**Systems & Data:** MySQL, Redis, Docker & Compose, Nginx, CyberPanel, CI/CD  
-**Payments & APIs:** Stripe (Payment Links, webhooks), REST APIs, WebSockets, Mapbox, Dynadot, Site.Pro  
-**Video/Media:** FFmpeg, HLS, background jobs  
-**SEO/CMS:** WordPress, Rank Math
+## 🛠️ Technical Toolbox
+
+- **Languages/Frameworks:** PHP (Laravel, Symfony), JavaScript/TypeScript (React, Vue 3, Node.js).
+- **Frontend Tools:** Redux Toolkit, RTK Query, Tailwind CSS, MUI, PrimeVue.
+- **Data & Caching:** MySQL, Redis, PostgreSQL.
+- **DevOps & Cloud:** Docker & Docker Compose, Google Cloud (GCP), Nginx, CI/CD, Linux.
+- **Third-Party APIs:** Stripe, PayPal, Dynadot, Site.pro, Mapbox, WebSockets.
 
 ---
 
-## About Me
-- Engineering Degree in Computer Engineering (ZAB recognized)  
-- Languages: Arabic (native), English (B2), French (B2), German (A1–A2 learning)  
-- Based in Tunisia • Ready to relocate to Germany
-
----
-
-### Notes on Private Work
-Some code is private for client and company reasons. The GIFs and summaries here show my real work, results, and stack.  
-If you need deeper proof, I can **walk through the architecture and decisions** on a call.
+## 📄 Professional Note
+A significant portion of my production code is held in private repositories for client confidentiality. However, I am prepared to **walk through my architectural decisions**, system designs, and specific code samples during a technical interview or call.
