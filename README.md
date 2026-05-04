@@ -30,6 +30,15 @@ in between.
 
 ---
 
+### AI Site Builder
+
+Integrated AI-assisted site creation — customers describe what
+they want, the system builds and deploys it.
+
+![AI site builder](./assets/hs-AI.gif)
+
+---
+
 ### Provisioning Pipeline
 
 The core of the platform. Orders are processed asynchronously via
@@ -64,18 +73,7 @@ No manual server configuration. Ever.
 - **SSL renewals** — automated, zero-touch
 - **WordPress one-click setup** — full LAMP stack configured
   and handed to the customer ready to use
-
-![WordPress one-click setup](./assets/hs-wp.gif)
-
----
-
-### AI Site Builder
-
-Integrated AI-assisted site creation — customers describe what
-they want, the system builds and deploys it.
-
-![AI site builder](./assets/hs-AI.gif)
-
+  
 ---
 
 ### Architecture Decisions
