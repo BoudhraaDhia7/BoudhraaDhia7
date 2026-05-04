@@ -19,7 +19,8 @@ I'm drawn to backend problems that don't have clean solutions — external APIs 
 > A customer clicks "order". A server exists 90 seconds later.
 > No manual steps. No ops team. Just the automation I built.
 
-![Platform order flow](./assets/hs-landing.gif)
+![Platform Landing Page](./assets/hs-landing-1.gif)
+![Platform Vps Landing Page](./assets/hs-landing-2.gif)
 
 Customer places an order → Proxmox spins the VM → Dynadot registers
 the domain → Stripe processes the payment → the control panel
@@ -53,6 +54,7 @@ different external API — each with its own failure mode.
   handling. An API failure is a logged, recoverable event — not a
   user-facing crisis.
 
+![Provisioning Pipeline](./assets/hs-vps.gif)
 ---
 
 ### Billing Engine
