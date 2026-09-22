@@ -1,135 +1,74 @@
-# Dhia Boudhraa — Full-Stack Engineer
+# Dhia Boudhraa
 
-**Backend Architecture · API Orchestration · Infrastructure Automation**
+**Full-Stack Developer · PHP / Laravel · Vue.js / TypeScript**
 
-> Most engineers touch a system. I own one.
+I'm a full-stack developer based in Neuss, Germany. At EXTERNALISATION.EU, I work on HostStronger, a VPS and web-hosting platform, building customer interfaces and the APIs, background jobs and integrations behind them.
 
-For 3 years I've been building and running a production VPS hosting platform — the kind where a customer clicks **"order"** and a fully provisioned server exists a moment later, with no one touching a keyboard. I built every layer of it, and I keep it running.
+I'm looking for a full-stack development role in Germany. My language levels are German A2, English B2 and French B2. I hold an engineering degree in Computer Science from École Polytechnique de Sousse, with a ZAB Statement of Comparability available.
 
-I'm drawn to the backend problems that don't have clean solutions: external APIs that fail in unpredictable ways, provisioning flows that have to survive partial failures, and billing logic that has to be right every single time.
+[LinkedIn](https://www.linkedin.com/in/dhia-boudhraa-243b80201) · [GitHub](https://github.com/BoudhraaDhia7) · [Email](mailto:boudhraad@gmail.com)
 
-📧 boudhraa.dhia.eddine@gmail.com
-🔗 [linkedin.com/in/dhia-boudhraa](https://linkedin.com/in/dhia-boudhraa-243b80201)
-🌍 Based in Tunisia · ZAB-recognized engineering degree (German Master's equivalent) · Chancenkarte-eligible
+## Selected work: HostStronger
 
----
+[HostStronger](https://hoststronger.com) combines VPS and hosting management with billing, domains, support and website-building workflows.
 
-## HostStronger — VPS Hosting Platform
+My work spans both sides of the application:
 
-> A customer clicks "order". A server exists moments later.
-> No manual steps. No ops team. Just the automation I built.
+- **Frontend:** customer and admin interfaces for VPS setup, billing and support with Vue 3, TypeScript and Pinia, within an application with six locale catalogs.
+- **Backend:** Laravel REST APIs, request validation, repositories, API resources and OpenAPI documentation.
+- **Provisioning:** asynchronous VPS workflows using Proxmox, Laravel jobs and Redis, with task tracking, retries and compensating cleanup for registered steps.
+- **Billing:** Stripe checkout and subscription integration, including queued webhook processing across 17 event types and recovery of failed processing attempts.
+- **Realtime:** Laravel Reverb updates with HTTP polling fallback, and a browser terminal connected through a Node.js WebSocket-to-SSH bridge and xterm.js.
+- **Quality and delivery:** PHPUnit tests and Docker/GitHub Actions workflows alongside frontend and backend feature work.
 
-![Platform Landing Page](./assets/hs-landing-1.gif)
-![Platform VPS Landing Page](./assets/hs-landing-2.gif)
+### How the parts fit together
 
-A customer places an order → Proxmox spins up the VM → Dynadot registers the domain → Stripe processes the payment → the control panel configures itself. My code handles the happy path **and every failure in between.**
+The Vue application calls Laravel APIs. Laravel stores application state and dispatches background jobs for longer operations. Those jobs coordinate providers such as Proxmox, Dynadot, cPanel and CyberPanel. Reverb and HTTP polling bring operation status back to the interface.
 
-**Live:** [hoststronger.com](https://hoststronger.com)
+Paid workflows use Stripe events to update local payment and order state before relevant fulfillment work is dispatched. VPS, domain and hosting orders follow their own workflows; not every order creates a VM, registers a domain and provisions a panel.
 
-**By the numbers** *(real counts from the codebase)*
+### Failure handling
 
-| | |
+External calls use provider-specific retry and timeout policies. Provisioning code can register compensating actions, run them in reverse order and persist failure records for investigation and retry. The webhook worker records attempts and completion separately, with five attempts and increasing retry delays.
+
+These are best-effort recovery mechanisms, not a claim of exactly-once delivery or guaranteed rollback after every failure.
+
+### AI website-builder integration
+
+I integrated SitePro's AI-assisted builder with account, session and publishing workflows. HostStronger passes the customer's prompt to SitePro and coordinates the surrounding hosting workflow. SitePro provides the editor and website-generation engine; I did not build or train that model.
+
+Separate application features call OpenAI for content/translation assistance and Groq for domain-name suggestions.
+
+### Repository scope
+
+A source audit of revision `b376ed1fe` in September 2026 found:
+
+| Measure | Scope |
 |---|---|
-| Codebase | ~298K lines — 110K PHP (Laravel 10) + 188K Vue 3 / TypeScript |
-| API | 379 REST endpoints, documented with OpenAPI (`l5-swagger`) |
-| Backend | 66 models · 137 migrations · 73 services · 48 repositories · 123 form-request validators |
-| Async | 25 queued jobs · Redis-backed queues (`predis`) |
-| Frontend | 249 components · 141 views · 58 composables · 11 Pinia stores · 79 typed API modules |
-| Reach | 6 fully translated locales (`vue-i18n`) |
+| 365 OpenAPI operation attributes | Source declarations, not a verified live-route total |
+| 33 queued job classes | Classes implementing Laravel's `ShouldQueue` |
+| 396 component files and 154 view files | Vue files in their respective frontend directories |
+| 15 Pinia store definitions | `defineStore` declarations |
+| 6 locale catalogs | English, French, German, Spanish, Italian and Dutch |
+| 17 Stripe event mappings | Registered event types, not 17 handler classes |
 
----
+These figures describe the repository as a whole, not code personally authored in isolation. The application uses Vue, not React. Deployment artifacts include Compose blue-green scripts, a multi-stage Dockerfile and Kubernetes rolling-update manifests; their presence does not establish an uptime figure.
 
-### Provisioning Pipeline
+## Public code: Vultr PHP SDK
 
-The core of the platform. Orders are processed asynchronously through Laravel jobs and Redis queues. Each step talks to a different external API — each with its own failure mode.
+[Source repository](https://github.com/BoudhraaDhia7/vultr-php-sdk) · [Packagist package](https://packagist.org/packages/boudhraadhia7/vultr-php-sdk)
 
-- **Proxmox VE API** — automated VM creation, IP allocation, firewall configuration, and full lifecycle management across **25 queued jobs** and **8 dedicated Proxmox client services**. Servers spin up without human intervention. Secure VM access over SSH via `phpseclib`.
-- **Automatic rollback** — `HandlesProvisioningRollback` cleans up partial state when a step fails, so a broken provision is a recoverable event, not corrupted data.
-- **Dynadot registrar API** — domain registration, DNS management, and transfers, all triggered by order events.
-- **Retry logic & fallback** — every external call is wrapped. An API failure is a logged, recoverable event — never a user-facing crisis.
+I adapted and published a Laravel/Symfony-oriented fork of an existing Vultr API client as `boudhraadhia7/vultr-php-sdk`. HostStronger declares it as a dependency.
 
-![Provisioning Pipeline](./assets/hs-vps.gif)
+The package covers Vultr API operations such as instance management and infrastructure catalogs. Its README credits the original upstream implementation. My contribution is the adaptation and packaging, not sole authorship of the original client.
 
----
+## Core stack
 
-### My own open-source SDK
+- **Frontend:** Vue 3, TypeScript, JavaScript, Pinia, Tailwind CSS, PrimeVue, Axios
+- **Backend:** PHP, Laravel, REST APIs, OpenAPI, Node.js, Express, WebSockets, Laravel Reverb
+- **Data:** PostgreSQL, MySQL, Redis, Eloquent ORM
+- **Testing and delivery:** PHPUnit, Git, GitHub Actions, Docker, Linux, nginx, Proxmox VE
 
-I authored and published the Composer package **`boudhraadhia7/vultr-php-sdk`**, consumed by this platform in production. Building and maintaining a namespaced package — not just using one — is where I do my cleanest API-orchestration work.
+## Discussing private work
 
----
-
-### AI Site Builder
-
-AI-assisted site creation: customers describe what they want, and the system builds and deploys it.
-
-![AI Site Builder](./assets/hs-AI.gif)
-
----
-
-### Billing Engine
-
-- **Stripe** (`stripe/stripe-php`) + **PayPal** with multi-currency subscription support
-- Automated **PDF invoicing** every billing cycle (`barryvdh/laravel-dompdf`)
-- A webhook state machine handling renewals, failures, and refunds — **10 Stripe webhook handlers**
-- PayPal IPN + Stripe webhooks processed asynchronously through queues
-
----
-
-### Control Panel Automation
-
-No manual server configuration. Ever.
-
-- **cPanel, CyberPanel, SitePro** — provisioned and configured automatically when a hosting order completes
-- **SSL renewals** — automated, zero-touch
-- **WordPress one-click setup** — full LAMP stack configured and handed over ready to use
-
----
-
-### Auth & Security
-
-- Token auth via **Laravel Sanctum**
-- **TOTP 2FA** (`pragmarx/google2fa`) with QR provisioning (`bacon/bacon-qr-code`)
-- **Google OAuth** sign-in and reCAPTCHA bot protection
-- Role and permission control via `spatie/laravel-permission`
-
----
-
-### Live In-Browser VPS Terminal
-
-Real-time server console in the browser, built with `xterm.js` (`@xterm/xterm` + `@xterm/addon-fit`) — customers manage their VPS without leaving the dashboard.
-
----
-
-### Architecture Decisions
-
-| Layer | Approach |
-|---|---|
-| Job processing | Laravel jobs + Redis, with retry and rollback handling |
-| Auth | Sanctum tokens, 2FA via TOTP, Google OAuth |
-| Service design | Strictly layered: Controller → Request → Repository → Service → Resource — one responsibility per class |
-| Infrastructure | Multi-stage Docker + blue-green Compose, Kubernetes manifests, nginx, supervisor, GCP, Linux hardening |
-| Frontend | Vue 3 (Composition API) + React (Hooks), Pinia, PrimeVue, Tailwind CSS |
-
----
-
-## Stack
-
-| Layer | Tools |
-|---|---|
-| Backend | PHP (Laravel 10, Symfony) · Node.js · TypeScript |
-| Frontend | Vue 3 · React · Pinia · Redux Toolkit · Tailwind CSS · PrimeVue |
-| Data | MySQL · Redis |
-| DevOps | Docker · Kubernetes · GCP · nginx · CI/CD · Linux |
-| APIs | Stripe · PayPal · Proxmox VE · Dynadot · cPanel / CyberPanel · SitePro |
-
----
-
-## Currently
-
-Expanding into **application security** — OWASP Top 10, web app pentesting via the PortSwigger Web Security Academy and picoCTF, working toward a certification. The goal: a developer who builds the system *and* knows how to break it.
-
----
-
-## On private repos
-
-Most of my production code lives in private repositories due to client confidentiality. I'm glad to walk through architecture decisions, system design, and specific code samples in a technical interview or call.
+Much of the application code is private. I can discuss the architecture, my contributions and failure-handling decisions in an interview, and share code or demonstrations only where publication is permitted. I do not publish customer data, infrastructure credentials or confidential source.
