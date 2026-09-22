@@ -6,7 +6,7 @@ I'm a full-stack developer based in Neuss, Germany. At EXTERNALISATION.EU, I wor
 
 I'm looking for a full-stack development role in Germany. My language levels are German A2, English B2 and French B2. I hold an engineering degree in Computer Science from École Polytechnique de Sousse, with a ZAB Statement of Comparability available.
 
-[LinkedIn](https://www.linkedin.com/in/dhia-boudhraa-243b80201) · [GitHub](https://github.com/BoudhraaDhia7) · [Email](mailto:boudhraad@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/dhia-boudhraa) · [GitHub](https://github.com/BoudhraaDhia7) · [Email](mailto:boudhraad@gmail.com)
 
 ## Selected work: HostStronger
 
